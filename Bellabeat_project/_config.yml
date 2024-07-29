@@ -1,0 +1,32 @@
+title: "Huu Manh portfolio: Bellabeat Project"
+email: your-email@example.com
+description: "Bellabeat, a high-tech company producing smart health-focused products, believes that analyzing smart device fitness data could help unlock new growth opportunities for the company. I did that task in this project by analyzing data collected from Fitbit fitness trackers and coming up with some insights and actionable recommendations."
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://humannguyen.github.io/my_portfolio/"
+twitter_username: 
+github_username: humannguyen
+
+# Build settings
+theme: minima
+plugins:
+  - jekyll-feed
+
+# Exclude from processing.
+# The following items will not be processed, by default.
+# Any item listed under the `exclude:` key here will be automatically added to
+# the internal "default list".
+#
+# Excluded items can be processed by explicitly listing the directories or
+# their entries' file path in the `include:` list.
+#
+# exclude:
+#   - .sass-cache/
+#   - .jekyll-cache/
+#   - gemfiles/
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules/
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/
