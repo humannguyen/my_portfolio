@@ -19,4 +19,4 @@ Brief information about yourself.
 ## Projects
 ### Bellabeat Project
 A brief summary of the project.
-[Detailed Project](./Bellabeat_project/)
+[Detailed Project](Bellabeat_project/)
