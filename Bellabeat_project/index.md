@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: bellabeat_project
 title: "Bellabeat Project"
 ---
 
