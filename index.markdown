@@ -14,7 +14,7 @@ Brief information about yourself.
 - Skill 3
 
 ## Resume
-
+[Download Resume](path/to/resume.pdf)
 
 ## Projects
 ### Bellabeat Project

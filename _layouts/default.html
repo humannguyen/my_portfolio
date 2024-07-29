@@ -1,21 +1,19 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><title>Untitled Document.md</title><style></style></head><body id="preview">
-<p class="has-line-data" data-line-start="0" data-line-end="19">&lt;!DOCTYPE html&gt;<br>
-&lt;html&gt;<br>
-&lt;head&gt;<br>
-&lt;title&gt;{{ page.title }}&lt;/title&gt;<br>
-&lt;link rel=“stylesheet” href=&quot;{{ ‘/assets/css/styles.css’ | relative_url }}&quot;&gt;<br>
-&lt;/head&gt;<br>
-&lt;body&gt;<br>
-&lt;header&gt;<br>
-&lt;h1&gt;{{ site.title }}&lt;/h1&gt;<br>
-&lt;p&gt;{{ site.description }}&lt;/p&gt;<br>
-&lt;/header&gt;<br>
-&lt;main&gt;<br>
-{{ content }}<br>
-&lt;/main&gt;<br>
-&lt;footer&gt;<br>
-&lt;p&gt;© 2024 Your Name&lt;/p&gt;<br>
-&lt;/footer&gt;<br>
-&lt;/body&gt;<br>
-&lt;/html&gt;</p>
-</body></html>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ page.title }}</title>
+    <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
+</head>
+<body>
+    <header>
+        <h1>{{ site.title }}</h1>
+        <p>{{ site.description }}</p>
+    </header>
+    <main>
+        {{ content }}
+    </main>
+    <footer>
+        <p>&copy; 2024 Your Name</p>
+    </footer>
+</body>
+</html>

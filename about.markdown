@@ -1,18 +1,21 @@
 ---
-layout: page
-title: About
-permalink: /about/
+layout: default
+title: "About"
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+# About Me
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+Brief information about yourself.
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
+## Skills
+- Skill 1
+- Skill 2
+- Skill 3
 
+## Resume
+[Download Resume](path/to/resume.pdf)
 
-[jekyll-organization]: https://github.com/jekyll
+## Projects
+### Bellabeat Project
+A brief summary of the project.
+[Detailed Project](./Bellabeat_project/index.md)
