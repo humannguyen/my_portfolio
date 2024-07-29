@@ -2,7 +2,6 @@
 title: "Bellabeat Project"
 layout: bellabeat_project
 ---
-
 ### Huu Manh portolio
 
 ![Bellabeat](https://bellabeat.com/wp-content/uploads/2023/09/Bellabeat-logo.jpg)
@@ -20,8 +19,7 @@ This project focuses on data analysis to guide marketing strategy development wi
 - **Importing Data and Building Visualizations in Tableau:** Importing data, creating basic charts, and constructing dashboards.
 - **Gaining Insights from Data and Making Recommendations:** Extracting valuable insights from the data to provide actionable recommendations.
  
- 
- ---
+---
 ## Ask phrase:
 Sršen knows that an analysis of Bellabeat’s available consumer data would reveal more opportunities for growth. She has asked the marketing analytics team to focus on a Bellabeat product and analyze smart device usage data in order to gain insight into how people are already using their smart devices. Then, using this information, she would like high-level recommendations for how these trends can inform Bellabeat marketing strategy.
 
@@ -65,29 +63,32 @@ Initially, the dataset was split into two folders for two months, each containin
 ### 1. Create daily activity table 
 In order to have large time scale, after upload the dataset on BigQuery, I **merged two dailyActivity_merged from two folders** (”Fitabase Data 3.12.16-4.11.16” and “Fitabase Data 4.12.16-5.12.16”). Then, I save the result as new table for later data manipulation
 - **Problem:** After merged the two tables, I checked for duplicates in the primary key (the combination of `Id` and `ActivityDate`) and discovered **24 duplicates**. The issue was traced back to the table in the "Fitabase Data 3.12.16-4.11.16" folder, which contained 24 records from April 12, 2016, despite the data being intended for the period between March 12, 2016, and April 11, 2016.
-``` sql
--- Create merged table for daily activity
-CREATE TABLE `capstoneproject-429913.fitabase.DailyActivity` AS
-	-- 'dailyActivity_merged.csv' table from ”Fitabase Data 3.12.16-4.11.16” folder
-	SELECT * FROM `capstoneproject-429913.fitbit_data.dailyActivity_1203-1104`
-UNION ALL 
-	-- 'dailyActivity_merged.csv' table from “Fitabase Data 4.12.16-5.12.16” folder
-	SELECT * FROM `capstoneproject-429913.fitbit_data.dailyActivity_1204-1205`
-ORDER BY Id, ActivityDate;
 
--- Checking for duplicate primary key
-SELECT
-    Id,
-    ActivityDate,
-    COUNT(*) AS count
-FROM `capstoneproject-429913.fitabase.DailyActivity`
-GROUP BY
-    Id,
-    ActivityDate
-HAVING
-    COUNT(*) > 1
-```
+  ``` sql
+  -- Create merged table for daily activity
+  CREATE TABLE `capstoneproject-429913.fitabase.DailyActivity` AS
+  	-- 'dailyActivity_merged.csv' table from ”Fitabase Data 3.12.16-4.11.16” folder
+  	SELECT * FROM `capstoneproject-429913.fitbit_data.dailyActivity_1203-1104`
+  UNION ALL 
+  	-- 'dailyActivity_merged.csv' table from “Fitabase Data 4.12.16-5.12.16” folder
+  	SELECT * FROM `capstoneproject-429913.fitbit_data.dailyActivity_1204-1205`
+  ORDER BY Id, ActivityDate;
+  
+  -- Checking for duplicate primary key
+  SELECT
+      Id,
+      ActivityDate,
+      COUNT(*) AS count
+  FROM `capstoneproject-429913.fitabase.DailyActivity`
+  GROUP BY
+      Id,
+      ActivityDate
+  HAVING
+      COUNT(*) > 1
+  ```
+
 -  **Solution:** Because duplicate rows have the same primary key and different value in others fields, so we cannot use SELECT DISTINCE to remove duplicates. I solved this problem by assigning a row number to each row in each primary key group. If the one primary key have more than one row, the first row in will receive number 1, the next row will receive number 2, and so on. Then I order them so that the row we want will receive number 1 and we set the condition for the query to only select rows with number 1.
+
 ```sql
 -- Create the table `daily_activity` without the error records
 CREATE TABLE `capstoneproject-429913.fitabase.daily_activity` AS
